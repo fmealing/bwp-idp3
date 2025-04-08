@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Birmingham Wildlife Park Staff Dashboard
 
-## Getting Started
+This is the internal dashboard for staff at **Birmingham Wildlife Park** as part of out IDP3 coursework. It lets you monitor enclosures in real time, check alerts, and adjust system settings.
 
-First, run the development server:
+This guide explains how to **open and run** the dashboard on your computer.
+
+---
+
+## What You Need Before You Start
+
+Before anything else, please make sure the following are installed on your computer:
+
+1. **Node.js** – the tool that lets the dashboard run.  
+   ➤ [Download it here](https://nodejs.org) (choose the "LTS" version).
+
+2. **A terminal** – this is a program like **Command Prompt** (Windows) or **Terminal** (Mac), where you type commands.
+
+If you're unsure whether these are installed, ask the developer team or follow the links above.
+
+---
+
+## How to Start the Dashboard
+
+Once you have everything ready, follow the steps below:
+
+1. Go to the project repository (e.g., GitHub)
+2. Click the green **"Code"** button
+3. Select **"Download ZIP"**
+4. Unzip the file and place the folder somewhere easy to find (e.g., your Desktop)
+
+5. Open the **Terminal** or **Command Prompt**.
+
+6. In the terminal, go to the folder where the project files are.  
+   (You can type `cd` followed by the folder path. For example:)
+
+   ```bash
+   cd Desktop/bwp-dashboard
+   ```
+
+7. Now run this command to install the required packages
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+ npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Once it's done, run this command to start the website
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+ npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+6. Open your browser and go to
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+ http://localhost:3000
+```
