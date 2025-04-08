@@ -24,10 +24,13 @@ export default function LoginPage() {
     const password = (form.elements.namedItem("password") as HTMLInputElement)
       .value;
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
+
+    // TODO: Delete this
+    console.log("Data: ", data);
 
     if (error) {
       toast.error("Invalid email or password.");
