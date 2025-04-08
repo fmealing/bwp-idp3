@@ -29,10 +29,7 @@ const DashboardPage = () => {
       {/* Top Bar */}
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">Dashboard</h1>
-        <div className="flex space-x-4">
-          <Button variant="outline">Settings</Button>
-          <Button onClick={handleLogout}>Logout</Button>{" "}
-        </div>
+        <Button onClick={handleLogout}>Logout</Button>{" "}
       </div>
 
       {/* Grid Layout */}
