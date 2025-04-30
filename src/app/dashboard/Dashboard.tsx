@@ -11,6 +11,9 @@ import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { useQuery } from "@tanstack/react-query";
 import { fetchReadings } from "@/lib/fetchReadings";
+import { useWeeklyStats } from "@/hooks/useWeeklyStats";
+import WeightStats from "@/components/dashboard/WeightStats";
+import EnergyStats from "@/components/dashboard/EnergyStats";
 
 const DashboardPage = () => {
   const router = useRouter();
@@ -23,6 +26,15 @@ const DashboardPage = () => {
     queryKey: ["readings"],
     queryFn: fetchReadings,
   });
+
+  const {
+    weeklyHigh,
+    weeklyLow,
+    healthStatus,
+    highestEnergy,
+    highestUsageLabel,
+    heatLossAlert,
+  } = useWeeklyStats(readings);
 
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
@@ -58,14 +70,6 @@ const DashboardPage = () => {
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <Button onClick={handleLogout}>Logout</Button>{" "}
       </div>
-
-      <Button
-        onClick={() => {
-          console.log("Data: ", readings);
-        }}
-      >
-        Testing
-      </Button>
 
       {/* Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -119,24 +123,11 @@ const DashboardPage = () => {
                 <WeightChart weights={weights} labels={timestamps} />
               </div>
 
-              <div className="mt-4 flex justify-between">
-                <StatCard
-                  label="Weekly High"
-                  value="24.3kg"
-                  className="text-alert"
-                />
-                <StatCard
-                  label="Weekly Low"
-                  value="24.1kg"
-                  className="text-green-600"
-                />
-                <StatCard
-                  label="Health Indication"
-                  value="Healthy"
-                  icon={<BadgeCheck className="text-success w-4 h-4" />}
-                  className="text-success"
-                />
-              </div>
+              <WeightStats
+                weeklyHigh={weeklyHigh}
+                weeklyLow={weeklyLow}
+                healthStatus={healthStatus}
+              />
             </CardContent>
           </Card>
 
@@ -148,24 +139,11 @@ const DashboardPage = () => {
                 <EnergyChart energyUsage={energy} labels={timestamps} />
               </div>
 
-              <div className="mt-4 flex justify-between">
-                <StatCard
-                  label="Highest Usage"
-                  value="Komodo Dragon"
-                  className="text-alert"
-                />
-                <StatCard
-                  label="Heat Loss Alert"
-                  value="High"
-                  className="text-warning"
-                  icon={<AlertTriangle className="w-4 h-4" />}
-                />
-                <StatCard
-                  label="Energy Usage"
-                  value="6.9 kW"
-                  className="text-alert"
-                />
-              </div>
+              <EnergyStats
+                highestUsageLabel={highestUsageLabel}
+                heatLossAlert={heatLossAlert}
+                highestEnergy={highestEnergy}
+              />
             </CardContent>
           </Card>
         </div>
