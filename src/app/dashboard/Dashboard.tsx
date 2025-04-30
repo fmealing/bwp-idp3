@@ -1,10 +1,9 @@
 "use client";
 
-import { BadgeCheck, ThermometerSun, AlertTriangle } from "lucide-react";
+import { ThermometerSun } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ConditionItem from "@/components/dashboard/ConditionItem";
-import StatCard from "@/components/dashboard/StatCard";
 import WeightChart from "@/components/charts/WeightChart";
 import EnergyChart from "@/components/charts/EnergyChart";
 import { useRouter } from "next/navigation";

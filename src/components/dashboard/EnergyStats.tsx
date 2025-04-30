@@ -26,7 +26,7 @@ const EnergyStats: React.FC<EnergyStatsProps> = ({
     <div className="mt-4 flex justify-between">
       <StatCard
         label="Highest Usage"
-        value="Komodo Enclosure"
+        value={highestUsageLabel}
         className="text-alert"
       />
       <StatCard
