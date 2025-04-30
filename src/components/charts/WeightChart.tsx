@@ -22,21 +22,6 @@ ChartJS.register(
   Legend
 );
 
-const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const data = {
-  labels,
-  datasets: [
-    {
-      label: "Weight (kg)",
-      data: [24.1, 24.2, 24.3, 24.0, 24.15, 24.1, 24.25],
-      fill: false,
-      borderColor: "#38A169",
-      backgroundColor: "#38A169",
-      tension: 0.4,
-    },
-  ],
-};
-
 const options = {
   responsive: true,
   plugins: {
@@ -47,6 +32,26 @@ const options = {
   },
 };
 
-export default function WeightChart() {
+export default function WeightChart({
+  weights,
+  labels,
+}: {
+  weights: number[];
+  labels: string[];
+}) {
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Weight (kg)",
+        data: weights,
+        fill: false,
+        borderColor: "#38A169",
+        backgroundColor: "#38A169",
+        tension: 0.4,
+      },
+    ],
+  };
+
   return <Line options={options} data={data} />;
 }

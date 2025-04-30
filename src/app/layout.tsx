@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AuthProvider from "@/components/AuthProvider";
 import "./globals.css";
+import ReactQueryProvider from "@/components/ReactQueryProvider";
 
 export const metadata: Metadata = {
   title: "Birmingham Wildlife Tracker",
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <ReactQueryProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

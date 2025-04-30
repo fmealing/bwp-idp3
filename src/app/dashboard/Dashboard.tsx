@@ -9,9 +9,20 @@ import WeightChart from "@/components/charts/WeightChart";
 import EnergyChart from "@/components/charts/EnergyChart";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+import { useQuery } from "@tanstack/react-query";
+import { fetchReadings } from "@/lib/fetchReadings";
 
 const DashboardPage = () => {
   const router = useRouter();
+
+  const {
+    data: readings = [],
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["readings"],
+    queryFn: fetchReadings,
+  });
 
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
@@ -24,6 +35,22 @@ const DashboardPage = () => {
     }
   };
 
+  const weights = readings.map((r) => r.weight);
+  const timestamps = readings.map((r) =>
+    new Date(r.created_at).toLocaleString([], {
+      day: "2-digit",
+      month: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    })
+  );
+
+  const energy = readings.map((r) => r.energy_usage);
+
+  if (isLoading) return <div className="p-6">Loading...</div>;
+  if (error) return <div className="p-6 text-red-500">Error fetching data</div>;
+
   return (
     <div className="min-h-screen p-6 bg-background text-text-primary">
       {/* Top Bar */}
@@ -31,6 +58,14 @@ const DashboardPage = () => {
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <Button onClick={handleLogout}>Logout</Button>{" "}
       </div>
+
+      <Button
+        onClick={() => {
+          console.log("Data: ", readings);
+        }}
+      >
+        Testing
+      </Button>
 
       {/* Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -54,12 +89,21 @@ const DashboardPage = () => {
               <div className="space-y-4">
                 <ConditionItem
                   label="Temperature"
-                  value="30°C"
+                  value={`${readings?.[0]?.temperature ?? "N/A"}°C`}
                   icon={<ThermometerSun />}
                 />
-                <ConditionItem label="CO₂ Levels" value="420 ppm" />
-                <ConditionItem label="Humidity" value="68.9%" />
-                <ConditionItem label="UV" value="10%" />
+                <ConditionItem
+                  label="CO₂ Levels"
+                  value={`${readings?.[0]?.co2 ?? "N/A"} ppm`}
+                />
+                <ConditionItem
+                  label="Humidity"
+                  value={`${readings?.[0]?.humidity ?? "N/A"}%`}
+                />
+                <ConditionItem
+                  label="UV"
+                  value={`${readings?.[0]?.uv ?? "N/A"}%`}
+                />
               </div>
             </CardContent>
           </Card>
@@ -71,8 +115,8 @@ const DashboardPage = () => {
           <Card className="col-span-2">
             <CardContent className="pt-6">
               <h2 className="font-bold text-lg mb-4">Weight</h2>
-              <div className="w-full h-40 bg-secondary rounded flex items-center justify-center">
-                <WeightChart />
+              <div className="w-full h-60 px-2 flex items-center justify-center">
+                <WeightChart weights={weights} labels={timestamps} />
               </div>
 
               <div className="mt-4 flex justify-between">
@@ -100,8 +144,8 @@ const DashboardPage = () => {
           <Card className="col-span-2">
             <CardContent className="pt-6">
               <h2 className="font-bold text-lg mb-4">Energy Usage</h2>
-              <div className="w-full h-40 bg-secondary rounded flex items-center justify-center">
-                <EnergyChart />
+              <div className="w-full h-60 px-2 flex items-center justify-center">
+                <EnergyChart energyUsage={energy} labels={timestamps} />
               </div>
 
               <div className="mt-4 flex justify-between">

@@ -22,23 +22,6 @@ ChartJS.register(
   Legend
 );
 
-const labels = Array.from({ length: 24 }, (_, i) => `${i}:00`);
-const data = {
-  labels,
-  datasets: [
-    {
-      label: "Energy Usage (kW)",
-      data: Array.from({ length: 24 }, () =>
-        (6.5 + Math.random() * 0.5).toFixed(2)
-      ),
-      fill: false,
-      borderColor: "#DD6B20",
-      backgroundColor: "#DD6B20",
-      tension: 0.3,
-    },
-  ],
-};
-
 const options = {
   responsive: true,
   plugins: {
@@ -49,6 +32,26 @@ const options = {
   },
 };
 
-export default function EnergyChart() {
+export default function EnergyChart({
+  energyUsage,
+  labels,
+}: {
+  energyUsage: number[];
+  labels: string[];
+}) {
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Energy Usage (kW)",
+        data: energyUsage,
+        fill: false,
+        borderColor: "#DD6B20",
+        backgroundColor: "#DD6B20",
+        tension: 0.3,
+      },
+    ],
+  };
+
   return <Line options={options} data={data} />;
 }
