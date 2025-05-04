@@ -25,7 +25,7 @@ export default function LoginPage() {
     const password = (form.elements.namedItem("password") as HTMLInputElement)
       .value;
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
