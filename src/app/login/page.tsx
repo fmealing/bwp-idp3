@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { supabase } from "@/lib/supabase";
 import { Eye, EyeOff } from "lucide-react";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
@@ -28,9 +29,6 @@ export default function LoginPage() {
       email,
       password,
     });
-
-    // TODO: Delete this
-    console.log("Data: ", data);
 
     if (error) {
       toast.error("Invalid email or password.");
@@ -82,10 +80,12 @@ export default function LoginPage() {
               {loading ? "Logging in..." : "Login"}
             </Button>
           </form>
-          <p className="text-xs mt-4 text-text-secondary">
-            Use <strong>staff@bwp.co.uk</strong> /{" "}
-            <strong>Password1234!</strong> to log in.
-          </p>
+          <Link
+            href="./password-reset"
+            className="text-xs mt-4 text-blue-600 hover:text-blue-800"
+          >
+            Forgot password?
+          </Link>
         </div>
       </div>
 

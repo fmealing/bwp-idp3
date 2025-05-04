@@ -53,9 +53,15 @@ const Navbar = () => {
           })}
         </ul>
 
-        {/* Placeholder for user actions */}
-        {/* TODO: Add something here */}
-        <div className="text-sm text-text-secondary hidden md:block">Staff</div>
+        <Link href="./dashboard" className="flex items-center space-x-3">
+          <Image
+            src="/images/avatar.png"
+            alt="User avatar"
+            width={48}
+            height={48}
+            className="rounded-full"
+          />
+        </Link>
       </nav>
     </header>
   );

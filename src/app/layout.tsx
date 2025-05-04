@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import AuthProvider from "@/components/AuthProvider";
 import "./globals.css";
 import ReactQueryProvider from "@/components/ReactQueryProvider";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Birmingham Wildlife Tracker",
@@ -17,7 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ReactQueryProvider>
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            {children}
+            <Toaster richColors />
+          </AuthProvider>
         </ReactQueryProvider>
       </body>
     </html>

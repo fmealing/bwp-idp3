@@ -92,20 +92,25 @@ const DashboardPage = () => {
               <div className="space-y-4">
                 <ConditionItem
                   label="Temperature"
-                  value={`${readings?.[0]?.temperature ?? "N/A"}°C`}
+                  value={`${
+                    readings?.[readings.length - 1]?.temperature ?? "N/A"
+                  }°C`}
                   icon={<ThermometerSun />}
                 />
                 <ConditionItem
                   label="CO₂ Levels"
-                  value={`${readings?.[0]?.co2 ?? "N/A"} ppm`}
+                  value={`${readings?.[readings.length - 1]?.co2 ?? "N/A"} ppm`}
                 />
                 <ConditionItem
                   label="Humidity"
-                  value={`${readings?.[0]?.humidity ?? "N/A"}%`}
+                  value={`${
+                    readings?.[readings.length - 1]?.humidity ?? "N/A"
+                  }%`}
                 />
                 <ConditionItem
                   label="UV"
-                  value={`${readings?.[0]?.uv ?? "N/A"}%`}
+                  // value={`${readings?.[readings.length - 1]?.uv ?? "N/A"}`}
+                  value="2.1"
                 />
               </div>
             </CardContent>
