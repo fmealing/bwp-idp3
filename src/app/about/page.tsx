@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator";
 const teamMembers = [
   { name: "Florian Mealing", image: "/images/team/florian.jpg" },
   { name: "Nouraldeen Abdelmajeed", image: "/images/team/nouraldeen.jpg" },
-  { name: "Alfie Hands", image: "/images/team/alfie.jpg" },
+  { name: "Alfie Hands", image: "/images/team/alfie.jpeg" },
   { name: "Ali Dharsee", image: "/images/team/ali.jpg" },
   { name: "Ihsaan Ahmed", image: "/images/team/ihsaan.jpg" },
   { name: "Arsalan Khan", image: "/images/team/arsalan.jpg" },
@@ -54,7 +54,7 @@ const AboutPage = () => {
                     alt={member.name}
                     width={80}
                     height={80}
-                    className="rounded-full object-cover shadow"
+                    className="rounded-full object-cover shadow w-20 h-20"
                   />
                   <span className="text-sm text-gray-800 dark:text-gray-200 font-medium">
                     {member.name}
