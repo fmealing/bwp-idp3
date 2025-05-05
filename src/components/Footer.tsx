@@ -1,31 +1,37 @@
 import Link from "next/link";
+import { FaEnvelope, FaExternalLinkAlt } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-200 mt-12">
-      <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-600">
-        {/* About Us */}
+    <footer className="bg-gray-900 text-gray-300">
+      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-sm">
+        {/* About */}
         <div>
-          <h3 className="font-semibold text-gray-800 mb-2">About Us</h3>
-          <p>
-            This dashboard was built as part of a university project to monitor
-            environmental conditions at Birmingham Wildlife Park.{" "}
-            <Link
-              href="/about"
-              className="text-blue-600 hover:underline font-medium"
-            >
-              Learn more
-            </Link>
+          <h3 className="text-lg font-semibold text-white mb-3">About</h3>
+          <p className="mb-2">
+            Dashboard project for monitoring environmental data at Birmingham
+            Wildlife Park.
+          </p>
+          <Link
+            href="/about"
+            className="inline-flex items-center text-blue-400 hover:underline"
+          >
+            Learn more <FaExternalLinkAlt className="ml-1 h-3 w-3" />
+          </Link>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-3">Contact</h3>
+          <p className="flex items-center gap-2">
+            <FaEnvelope /> fxm281@student.bham.ac.uk
           </p>
         </div>
 
-        {/* Contact / Links */}
+        {/* Credits */}
         <div>
-          <h3 className="font-semibold text-gray-800 mb-2">Contact</h3>
-          <p>Email: fxm281@student.bham.ac.uk</p>
-
-          <h4 className="mt-4 font-semibold text-gray-800 mb-1">Credits</h4>
-          <ul className="list-disc list-inside">
+          <h3 className="text-lg font-semibold text-white mb-3">Credits</h3>
+          <ul className="space-y-1">
             <li>Florian Mealing</li>
             <li>Nouraldeen Abdelmajeed</li>
             <li>Alfie Hands</li>
@@ -36,38 +42,37 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Legal / Info */}
+        {/* Info */}
         <div>
-          <h3 className="font-semibold text-gray-800 mb-2">Info</h3>
-          <ul className="space-y-1">
-            <li>This is a non-commercial university project.</li>
-            <li>Sensor data may not reflect real-time conditions.</li>
+          <h3 className="text-lg font-semibold text-white mb-3">Info</h3>
+          <ul className="space-y-2">
+            <li>This is a non-commercial student project.</li>
+            <li>Data may not be in real-time.</li>
             <li>
               Built with{" "}
               <a
                 href="https://nextjs.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
+                className="text-blue-400 hover:underline"
               >
                 Next.js
               </a>{" "}
-              and{" "}
+              &{" "}
               <a
                 href="https://tailwindcss.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
+                className="text-blue-400 hover:underline"
               >
                 TailwindCSS
               </a>
-              .
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="text-center text-xs text-gray-400 py-4 border-t">
+      <div className="text-center text-xs text-gray-500 py-4 border-t border-gray-700">
         © {new Date().getFullYear()} Birmingham Wildlife Park Dashboard
       </div>
     </footer>
