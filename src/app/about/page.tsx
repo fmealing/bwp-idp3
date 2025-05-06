@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 
 const teamMembers = [
   { name: "Florian Mealing", image: "/images/team/florian.jpg" },
-  { name: "Nouraldeen Abdelmajeed", image: "/images/team/nouraldeen.jpg" },
+  { name: "Nouraldeen Abdelmajeed", image: "/images/team/nouraldeen1.jpg" },
   { name: "Alfie Hands", image: "/images/team/alfie.jpeg" },
   { name: "Ali Dharsee", image: "/images/team/ali1.jpg" },
   { name: "Ihsaan Ahmed", image: "/images/team/ihsaan.jpeg" },
