@@ -12,7 +12,7 @@ const teamMembers = [
   { name: "Ali Dharsee", image: "/images/team/ali1.jpg" },
   { name: "Ihsaan Ahmed", image: "/images/team/ihsaan.jpeg" },
   { name: "Arsalan Khan", image: "/images/team/arsalan.jpg" },
-  { name: "Chris Jones", image: "/images/team/chrisj.jpg" },
+  { name: "Chris Jones", image: "/images/team/cj.jpeg" },
 ];
 
 const supervisor = {
