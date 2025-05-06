@@ -10,8 +10,8 @@ const teamMembers = [
   { name: "Nouraldeen Abdelmajeed", image: "/images/team/nouraldeen.jpg" },
   { name: "Alfie Hands", image: "/images/team/alfie.jpeg" },
   { name: "Ali Dharsee", image: "/images/team/ali.jpg" },
-  { name: "Ihsaan Ahmed", image: "/images/team/ihsaan.jpg" },
-  { name: "Arsalan Khan", image: "/images/team/arsalan.jpeg" },
+  { name: "Ihsaan Ahmed", image: "/images/team/ihsaan.jpeg" },
+  { name: "Arsalan Khan", image: "/images/team/arsalan.jpg" },
   { name: "Chris Jones", image: "/images/team/chrisj.jpg" },
 ];
 
